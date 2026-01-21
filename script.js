@@ -50,26 +50,3 @@ const collisionCheck = setInterval(() => {
   }
 }, 10);
 
-const obstacle = document.getElementById("obstacle");
-
-function startObstacle() {
-  // Reset animation
-  obstacle.style.animation = "none";
-  obstacle.offsetHeight; // force reflow
-
-  obstacle.style.animation = "move 1.5s linear";
-  obstacle.style.animationPlayState = "running";
-
-  // Random gap (800ms – 2000ms)
-  const randomDelay = Math.random() * 1200 + 800;
-
-  setTimeout(() => {
-    obstacle.style.animationPlayState = "paused";
-    startObstacle();
-  }, 1500 + randomDelay); // animation duration + gap
-}
-
-// Start first obstacle
-startObstacle();
-
-
