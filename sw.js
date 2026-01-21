@@ -6,5 +6,6 @@ const FILES = [
   BASE + "style.css",
   BASE + "script.js",
   BASE + "manifest.json",
-  BASE + "me.png"
+  BASE + "me.jpg"
 ];
+
