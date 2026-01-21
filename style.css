@@ -14,13 +14,24 @@ body {
 }
 
 #player {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
+
+  /* your photo */
   background-image: url("me.jpg");
   background-size: cover;
+  background-position: center;
+
+  /* circle */
+  border-radius: 50%;
+
+  /* positioning */
   position: absolute;
   bottom: 0;
   left: 50px;
+
+  /* subtle outline like dino */
+  border: 2px solid #333;
 }
 
 .jump {
@@ -47,3 +58,4 @@ body {
   0% { right: -20px; }
   100% { right: 600px; }
 }
+
