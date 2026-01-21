@@ -80,6 +80,7 @@ body {
 
   border-radius: 6px 6px 4px 4px;
   animation: move 1.5s infinite linear;
+  animation-play-state: paused;
 }
 
 /* Tree branches */
@@ -112,3 +113,4 @@ body {
   0%   { right: -30px; }
   100% { right: 600px; }
 }
+
