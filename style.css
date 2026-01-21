@@ -14,26 +14,46 @@ body {
 }
 
 #player {
-  /* Dino-like body size */
-  width: 54px;
-  height: 64px;
+  /* Head (30% smaller) */
+  width: 38px;
+  height: 38px;
 
   /* Your photo */
   background-image: url("me.jpg");
   background-size: cover;
   background-position: center;
 
-  /* Rounded dino shape */
-  border-radius: 50% 50% 40% 40%;
+  /* Circular face */
+  border-radius: 50%;
+  border: 2px solid #333;
 
   /* Position */
   position: absolute;
-  bottom: 0;
+  bottom: 22px;
   left: 50px;
+}
 
-  /* Visual polish */
-  border: 2px solid #333;
-  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.2);
+/* T-Rex body + legs (same component) */
+#player::after {
+  content: "";
+  position: absolute;
+
+  /* Body */
+  width: 44px;
+  height: 26px;
+  background: #333;
+
+  /* Dino shape */
+  border-radius: 12px 12px 6px 6px;
+
+  /* Attach under head */
+  bottom: -26px;
+  left: -3px;
+
+  /* Legs */
+  box-shadow:
+    6px 20px 0 #333,
+    26px 20px 0 #333;
 }
 
 .jump {
@@ -47,19 +67,50 @@ body {
 }
 
 #obstacle {
-  width: 20px;
-  height: 40px;
-  background: black;
   position: absolute;
   bottom: 0;
-  right: -20px;
+  right: -30px;
+
+  /* Main trunk */
+  width: 18px;
+  height: 45px;
+  background: #2f7d32;
+
+  border-radius: 6px 6px 4px 4px;
+
   animation: move 1.5s infinite linear;
+}
+
+/* Tree branches (cactus style) */
+#obstacle::before,
+#obstacle::after {
+  content: "";
+  position: absolute;
+  background: #2f7d32;
+  border-radius: 4px;
+}
+
+/* Left branch */
+#obstacle::before {
+  width: 14px;
+  height: 10px;
+  left: -12px;
+  top: 14px;
+}
+
+/* Right branch */
+#obstacle::after {
+  width: 14px;
+  height: 10px;
+  right: -12px;
+  top: 22px;
 }
 
 @keyframes move {
   0% { right: -20px; }
   100% { right: 600px; }
 }
+
 
 
 
