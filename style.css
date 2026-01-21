@@ -14,7 +14,7 @@ body {
 }
 
 #player {
-  /* Head (30% smaller) */
+  /* Head (reference size) */
   width: 38px;
   height: 38px;
 
@@ -23,38 +23,22 @@ body {
   background-size: cover;
   background-position: center;
 
-  /* Circular face */
+  /* Circular head */
   border-radius: 50%;
   border: 2px solid #333;
 
   /* Position */
   position: absolute;
-  bottom: 22px;
+  bottom: 8px;   /* sits just above legs */
   left: 50px;
 }
 
-/* T-Rex body + legs (same component) */
+/* Two short dino legs (20% of head size) */
 #player::after {
   content: "";
   position: absolute;
 
-  /* Body */
-  width: 44px;
-  height: 26px;
-  background: #333;
-
-  /* Dino shape */
-  border-radius: 12px 12px 6px 6px;
-
-  /* Attach under head */
-  bottom: -26px;
-  left: -3px;
-
-  /* Legs */
-  box-shadow:
-    6px 20px 0 #333,
-    26px 20px 0 #333;
-}
+  /* Legs size: ~20% of*
 
 .jump {
   animation: jump 0.5s linear;
@@ -64,21 +48,6 @@ body {
   0% { bottom: 0; }
   50% { bottom: 100px; }
   100% { bottom: 0; }
-}
-
-#obstacle {
-  position: absolute;
-  bottom: 0;
-  right: -30px;
-
-  /* Main trunk */
-  width: 18px;
-  height: 45px;
-  background: #2f7d32;
-
-  border-radius: 6px 6px 4px 4px;
-
-  animation: move 1.5s infinite linear;
 }
 
 /* Tree branches (cactus style) */
@@ -110,6 +79,7 @@ body {
   0% { right: -20px; }
   100% { right: 600px; }
 }
+
 
 
 
