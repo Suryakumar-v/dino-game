@@ -17,6 +17,27 @@
 
 <p>Press SPACE or TAP to jump</p>
 
+<script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB0UcgRq30Htuzz3iO6wqXQD57Fmjjx5pI",
+    authDomain: "dinogame-56fc9.firebaseapp.com",
+    projectId: "dinogame-56fc9",
+    storageBucket: "dinogame-56fc9.firebasestorage.app",
+    messagingSenderId: "1018237302",
+    appId: "1:1018237302:web:f8267f276ee0662c9c2a57"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Firestore reference (GLOBAL DB)
+  const db = firebase.firestore();
+</script>
+
+
 <script src="script.js"></script>
 
 <script>
@@ -27,3 +48,4 @@
 
 </body>
 </html>
+
