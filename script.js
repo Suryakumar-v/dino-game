@@ -43,10 +43,39 @@ const collisionCheck = setInterval(() => {
     obstacleRight < 570 &&
     playerBottom < 40
   ) {
+    if (gameOver) return;
+
     gameOver = true;
     obstacle.style.animationPlayState = "paused";
-    alert("Game Over! Score: " + score);
-    location.reload();
+
+    // 🔥 Firebase leaderboard hook
+    onGameOver(score);
+
+    setTimeout(() => {
+      location.reload();
+    }, 800);
   }
 }, 10);
 
+// 🔽🔥 FIREBASE FUNCTIONS 🔥🔽
+function onGameOver(finalScore) {
+  const name = prompt("Game Over! Enter your name:");
+
+  if (!name) return;
+
+  saveScore(name, finalScore);
+}
+
+function saveScore(name, score) {
+  db.collection("leaderboard").add({
+    name: name.substring(0, 15),
+    score: score,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(() => {
+    console.log("Score saved:", name, score);
+  })
+  .catch(err => {
+    console.error("Error saving score:", err);
+  });
+}
